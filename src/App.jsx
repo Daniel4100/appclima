@@ -1,7 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import './App.css'
-import imagen from "./assets/intercambiar.png"
+
+import Card from './components/Card'
+import Loader from './components/Loader'
 
 
 
@@ -9,6 +11,7 @@ function App() {
   const [cordenadas, setcordenadas] = useState()
   const [weather, setWeather] = useState()
   const [changeTemp, setChangeTemp] = useState(true)
+  const [isLoading, setisLoading] = useState(true)
 
   useEffect (() =>{
     const success = pos =>{
@@ -26,7 +29,10 @@ function App() {
       const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${cordenadas.lat}&lon=${cordenadas.lon}&appid=${API_KEY}`
 
       axios.get(URL)
-      .then(res => setWeather(res.data))
+      .then(res => {
+        setWeather(res.data)
+        setisLoading(false)
+    })
       .catch(err => console.log(err)) 
     }
   }, [cordenadas])
@@ -38,25 +44,10 @@ function App() {
 
   return (
     <div className="App">
-      <div className='card'>
-        <div className='cardone'>
-          <h1>{changeTemp ? (weather?.main.temp - 273.15).toFixed(1) + ' °C' : ( 1.8 * (weather?.main.temp - 273) +32).toFixed (1) + ' °F'}</h1>
-          <button onClick={change}> <img src={imagen} />{changeTemp ? 'F' : 'C'}</button>
-        </div>
-        
-        <div className='title'>
-          <p className='city'>{weather?.name} </p>
-          <p className='country'>{weather?.sys.country}</p>
-        </div>
-        <div className='cardtwo'>
-          <h2>Clouds: {weather?.clouds.all}%</h2>
-          <h2>Humidity: {weather?.main.humidity}%</h2>
-          <h2>wind speed: {weather?.wind.speed} m/s</h2>
-        </div>
-        
-        
-        
-      </div>
+      {isLoading ? <Loader /> :<Card 
+      weather={weather}
+      change={change}
+      changeTemp={changeTemp}/>}
     </div>
   )
 }
