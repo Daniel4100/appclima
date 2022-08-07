@@ -1,34 +1,83 @@
-import React from 'react'
-import imagen from "../assets/intercambiar.png"
+import React from "react";
+import imagen from "../assets/intercambiar.png";
+import Input from "./Input";
+import Notfound from "./Notfound";
+import Waves from "./Waves";
 
-const Card = ({weather, change, changeTemp}) => {
-    return (
+const Card = ({ weather, change, changeTemp, location, setLocation, searchLocation, notFound }) => {
+  return (
     <>
-        <div className='card'>
-            <div className='cardone'>
-            <h1>{changeTemp ? (weather?.main.temp - 273.15).toFixed(1) + ' °C' : ( 1.8 * (weather?.main.temp - 273) +32).toFixed (1) + ' °F'}</h1>
-            <button onClick={change}> <img src={imagen} />{changeTemp ? 'F' : 'C'}</button>
-            
-            
-            </div>
-            
-            <div className='title'>
-                <p className='city'>{weather?.name} {weather?.sys.country} </p>
-                {/* <p className='country'></p> */}
-                <img src={weather && `http://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`} alt="" />
-                <h2>{weather?.weather[0].description}</h2>
-            </div>
-            <div className='cardtwo'>
-            <h2>Clouds: {weather?.clouds.all}%</h2>
-            <h2>Humidity: {weather?.main.humidity}%</h2>
-            <h2>wind speed: {weather?.wind.speed} m/s</h2>
-            </div>
-            
-            
-            
-        </div>
-    </>
-  )
-}
+      <div className="container">
 
-export default Card
+
+        {/* UNICACION NO ENCONTRADA */}
+        <div >
+          {
+            notFound ? null : <Notfound />
+          }
+        </div>
+
+
+        <div>
+          <Input 
+          location={location}
+          setLocation={setLocation}
+          searchLocation={searchLocation}
+          />
+        </div>
+        
+
+        <div className="box1">
+
+          {/* NOMBRE DE LA CIUDAD Y EL CODIGO DE PAIS  */}
+          <h1 className="city">
+            {weather?.name} {weather?.sys.country}
+          </h1>
+
+          
+        </div>
+        {/* NUMERO DE TEMPERATURA */}
+        <div className="box2">
+          <div className="box2__temp">
+            <p>
+              {changeTemp
+                ? (weather?.main.temp - 273.15).toFixed(1) + " °C"
+                : (1.8 * (weather?.main.temp - 273) + 32).toFixed(1) + " °F"}
+            </p>
+          </div>
+          <div className="box2__description">
+            <h2>{weather?.weather[0].description}</h2>
+          </div>
+          <div className="box2__statitics">
+            <div>
+              <p>{weather?.clouds.all}%</p>
+              <p>Clouds</p>
+            </div>
+            <div>
+              <p>{weather?.main.humidity}%</p>
+              <p>Humidity</p>
+            </div>
+            <div>
+              <p>{weather?.wind.speed} m/s</p>
+              <p>Wind</p>
+            </div>
+          </div>
+        </div>
+        <div className="box3">
+          <Waves />
+        </div>
+        <div className="box4">
+          {/* BOTON QUE CAMBIA LA TEMPERATURA  */}
+          <button onClick={change}>
+            
+            <img src={imagen} />
+            {changeTemp ? "F" : "C"}
+          </button>
+        </div>
+
+      </div>
+    </>
+  );
+};
+
+export default Card;

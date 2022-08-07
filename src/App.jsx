@@ -4,6 +4,7 @@ import './App.css'
 
 import Card from './components/Card'
 import Loader from './components/Loader'
+import Notfound from './components/Notfound'
 
 
 
@@ -12,6 +13,12 @@ function App() {
   const [weather, setWeather] = useState()
   const [changeTemp, setChangeTemp] = useState(true)
   const [isLoading, setisLoading] = useState(true)
+  const [location, setLocation] = useState('')
+
+  const [notFound, setNotFound] = useState(true)
+
+
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=895284fb2d2c50a520ea537456963d9c`
 
   useEffect (() =>{
     const success = pos =>{
@@ -37,17 +44,39 @@ function App() {
     }
   }, [cordenadas])
 
-  console.log(weather);
+  const searchLocation = (event) => {
+    if (event.key === 'Enter') {
+      axios.get(url)
+      .then((response) => {
+        setWeather(response.data)
+        console.log(response.data)
+      })
+      .catch(err => {
+        console.log(err)
+        setNotFound(false)
+        setTimeout(() =>{
+          setNotFound(true)
+
+        }, 3000)
+      })
+      setLocation('')
+    }
+  }
 
   const change = () => setChangeTemp(!changeTemp)
   
-
+  console.log(weather)
   return (
     <div className="App">
       {isLoading ? <Loader /> :<Card 
       weather={weather}
       change={change}
-      changeTemp={changeTemp}/>}
+      changeTemp={changeTemp}
+      location={location}
+      setLocation={setLocation}
+      searchLocation={searchLocation}
+      notFound={notFound}
+      />}
     </div>
   )
 }
