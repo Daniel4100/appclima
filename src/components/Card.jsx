@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import imagen from "../assets/intercambiar.png";
 import Input from "./Input";
 import Notfound from "./Notfound";
 import Waves from "./Waves";
 
-const Card = ({ weather, change, changeTemp, location, setLocation, searchLocation, notFound }) => {
+const Card = ({ weather, change, changeTemp, location, setLocation, searchLocation, notFound, setLastLetter }) => {
+  
+
+
+  
+  
   return (
     <>
       <div className="container">
@@ -16,9 +22,7 @@ const Card = ({ weather, change, changeTemp, location, setLocation, searchLocati
             notFound ? null : <Notfound />
           }
         </div>
-
-
-        <div>
+        <div >
           <Input 
           location={location}
           setLocation={setLocation}
@@ -51,7 +55,7 @@ const Card = ({ weather, change, changeTemp, location, setLocation, searchLocati
           <div className="box2__statitics">
             <div>
               <p>{weather?.clouds.all}%</p>
-              <p>Clouds</p>
+              <p>Clouds </p>
             </div>
             <div>
               <p>{weather?.main.humidity}%</p>
@@ -66,13 +70,14 @@ const Card = ({ weather, change, changeTemp, location, setLocation, searchLocati
         <div className="box3">
           <Waves />
         </div>
-        <div className="box4">
+        <div className={`box4`}>
           {/* BOTON QUE CAMBIA LA TEMPERATURA  */}
           <button onClick={change}>
             
             <img src={imagen} />
             {changeTemp ? "F" : "C"}
           </button>
+          <h1></h1>
         </div>
 
       </div>

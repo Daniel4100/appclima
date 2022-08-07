@@ -16,6 +16,7 @@ function App() {
   const [location, setLocation] = useState('')
 
   const [notFound, setNotFound] = useState(true)
+  const [lastLetter, setLastLetter] = useState()
 
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=895284fb2d2c50a520ea537456963d9c`
@@ -64,8 +65,17 @@ function App() {
   }
 
   const change = () => setChangeTemp(!changeTemp)
+
+  useEffect(() => {
+    
+    setLastLetter(weather?.weather[0].icon)
+    
+    
+
+  }, [weather?.weather[0].icon])
+  console.log(lastLetter)
   
-  console.log(weather)
+
   return (
     <div className="App">
       {isLoading ? <Loader /> :<Card 
@@ -76,6 +86,7 @@ function App() {
       setLocation={setLocation}
       searchLocation={searchLocation}
       notFound={notFound}
+      setLastLetter={setLastLetter}
       />}
     </div>
   )
