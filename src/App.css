@@ -17,13 +17,16 @@ body, h1, h2,h3, p{
   flex-direction: column;
   align-items: center;
   padding: 2em 0em 0 0em;
-  min-height: 80vh;
+  height: 80vh;
   padding-bottom: 4em;
   justify-content: space-around;
+  backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0);
+  
 }
 .container2{
   width: 100%;
-  min-height: 20vh;
+  height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,7 +39,8 @@ body, h1, h2,h3, p{
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: -0px;
-  color: black;
+  color: rgb(0, 0, 0);
+  filter: brightness();
 }
 .dRain{
   background-image: url(https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
@@ -298,8 +302,12 @@ button img{
   h1 {
     font-size:24px;
   }
+  .dClouds{
+    background-image: url(../public/images/clouds.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -0px;
+    color: rgb(0, 0, 0);
+  }
 }
 
-.d{
-  background-image: url();
-}
