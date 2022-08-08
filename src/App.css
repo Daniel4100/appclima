@@ -13,20 +13,35 @@ body, h1, h2,h3, p{
 }
 .container{
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2em 0em 0 0em;
+  min-height: 80vh;
+  padding-bottom: 4em;
+  justify-content: space-around;
 }
-.container1{
+.container2{
   width: 100%;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background-color: white;
+  position: relative;
 }
-.d{
-  background-color: aquamarine;
+.dClouds{
+  background-image: url(https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -0px;
+  color: black;
+}
+.dRain{
+  background-image: url(https://images.pexels.com/photos/39811/pexels-photo-39811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 input{
   border-radius: 25px;
@@ -44,22 +59,12 @@ input{
   justify-content: center;
   align-items: center;
   height: 7em;
-  margin: 1em 0;
 }
 .box1 h1{
   font-size: 1.5rem;
   font-weight: 300;
 }
-
-.box2{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 12em;
-  margin-bottom: 6em;
-}
-.box2 .box2__temp{
+.box__temp{
   height: 40%;
   display: flex;
   justify-content: center;
@@ -67,6 +72,14 @@ input{
   font-size: 4rem;
   
 }
+.box2{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 12em;
+}
+
 .box2 .box2__description{
   height: 3em;
   display: flex;
@@ -99,7 +112,9 @@ input{
 
 .box3{
   width: 100%;
-  background-color: rgba(0, 0, 255, 0.068);
+  background-color: rgba(0, 0, 255, 0);
+  position: absolute;
+  top: -80px;
 }
 
 
@@ -114,7 +129,6 @@ input{
 
 .content {
   position:relative;
-  height:20vh;
   text-align:center;
 }
 
@@ -152,18 +166,9 @@ input{
 
 /* fin de zona de waves  */
 
-.box4{
-  
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
-}
 
-.box4 button{
+
+.container2 button{
   width: 60px;
   height: 60px;
   font-size: 1.5rem;

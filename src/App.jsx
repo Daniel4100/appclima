@@ -72,12 +72,11 @@ function App() {
     
     
 
-  }, [weather?.weather[0].icon])
-  console.log(lastLetter)
-  
+  }, [weather])
+  console.log(weather)
 
   return (
-    <div className="App">
+    <div className={`App ${lastLetter?.[lastLetter.length - 1]}${weather?.weather[0].main}`}>
       {isLoading ? <Loader /> :<Card 
       weather={weather}
       change={change}
