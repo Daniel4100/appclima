@@ -15,7 +15,7 @@ const Input = ({location, setLocation,searchLocation}) => {
         value={location}
         onChange={getlocation}
         onKeyPress={searchLocation}
-        placeholder="Enter Location"
+        placeholder="Enter Location 🔎"
         type="text"
       />
 

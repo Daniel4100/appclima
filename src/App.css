@@ -9,7 +9,6 @@ body, h1, h2,h3, p{
 }
 .App{
   background-color: #1b6385;
-  color: rgb(236, 255, 255);
 }
 .container{
   width: 100%;
@@ -20,9 +19,10 @@ body, h1, h2,h3, p{
   height: 80vh;
   padding-bottom: 4em;
   justify-content: space-around;
-  backdrop-filter: blur(2px);
-  background-color: rgba(0, 0, 0, 0);
-  
+  /* backdrop-filter: blur(2px); */
+  background-color: rgba(216, 216, 216, 0.178);
+  backdrop-filter: blur(4px);
+  position: relative;
 }
 .container2{
   width: 100%;
@@ -47,12 +47,47 @@ body, h1, h2,h3, p{
   background-repeat: no-repeat;
   background-size: cover;
 }
+.dThunderstorm{
+  background-image: url(https://images.pexels.com/photos/2226190/pexels-photo-2226190.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black;
+}
+.dDrizzle{
+  background-image: url(https://images.pexels.com/photos/1110497/pexels-photo-1110497.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.dSnow{
+  background-image: url(https://images.pexels.com/photos/259583/pexels-photo-259583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.dClear{
+  background-image: url(https://images.pexels.com/photos/96622/pexels-photo-96622.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.nClear{
+  background-image: url(https://images.pexels.com/photos/2706654/pexels-photo-2706654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgb(233, 243, 250);
+}
+.nClouds{
+  background-image: url(https://images.pexels.com/photos/414634/pexels-photo-414634.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgb(233, 243, 250);
+}
+
 input{
   border-radius: 25px;
+  border: none;
   height: 3em;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   margin-bottom: 1em;
 }
 
@@ -65,7 +100,7 @@ input{
   height: 7em;
 }
 .box1 h1{
-  font-size: 1.5rem;
+  font-size: 2.3rem;
   font-weight: 300;
 }
 .box__temp{
@@ -77,23 +112,25 @@ input{
   
 }
 .box2{
-  width: 100%;
+  width: 50%;
+  max-width: 1080px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   height: 12em;
+  
 }
 
-.box2 .box2__description{
+.box2__description{
   height: 3em;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .box2__description h2{
-  font-size: 1rem;
-  font-weight: 300;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 
 .box2__statitics{
@@ -102,6 +139,8 @@ input{
   width: 100%;
   justify-content: center;
   max-width: 650px;
+  font-weight: 500;
+  
 }
 
 .box2__statitics div{
@@ -292,6 +331,9 @@ button img{
 
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
+  .box2{
+    width: 90%;
+  }
   .waves {
     height:90px;
     min-height:40px;

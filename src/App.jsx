@@ -85,7 +85,7 @@ function App() {
       setLocation={setLocation}
       searchLocation={searchLocation}
       notFound={notFound}
-      setLastLetter={setLastLetter}
+      lastLetter={lastLetter}
       />}
     </div>
   )

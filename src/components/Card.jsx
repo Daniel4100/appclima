@@ -13,7 +13,6 @@ const Card = ({
   setLocation,
   searchLocation,
   notFound,
-  setLastLetter,
 }) => {
   return (
     <>
@@ -42,10 +41,11 @@ const Card = ({
               : (1.8 * (weather?.main.temp - 273) + 32).toFixed(1) + " °F"}
           </p>
         </div>
-        <div className="box2">
-          <div className="box2__description">
+        <div className="box2__description">
             <h2>{weather?.weather[0].description}</h2>
-          </div>
+        </div>
+        <div className="box2">
+          
           <div className="box2__statitics">
             <div>
               <p>{weather?.clouds.all}%</p>
