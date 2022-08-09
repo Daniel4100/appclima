@@ -80,6 +80,12 @@ body, h1, h2,h3, p{
   background-size: cover;
   color: rgb(233, 243, 250);
 }
+.nRain{
+  background-image: url(https://cdn.pixabay.com/photo/2016/11/22/21/39/dark-1850684_960_720.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgb(233, 243, 250);
+}
 
 input{
   border-radius: 25px;
