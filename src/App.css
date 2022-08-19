@@ -7,11 +7,20 @@ body, h1, h2,h3, p{
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
+body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+}
 .App{
   background-color: #1b6385;
+  width: 100vw;
+  max-width:1640px ;
 }
 .container{
   width: 100%;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +47,7 @@ body, h1, h2,h3, p{
   background-image: url(https://images.pexels.com/photos/531767/pexels-photo-531767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: -0px;
+  background-position: 0cm -4cm;
   color: rgb(0, 0, 0);
   filter: brightness();
 }
@@ -79,6 +88,7 @@ body, h1, h2,h3, p{
   background-repeat: no-repeat;
   background-size: cover;
   color: rgb(233, 243, 250);
+  ;
 }
 .nRain{
   background-image: url(https://cdn.pixabay.com/photo/2016/11/22/21/39/dark-1850684_960_720.jpg);
@@ -156,6 +166,8 @@ input{
   width: 33%;
   justify-content: center;
   text-align: center;
+  position: relative;
+  z-index: 10000;
 }
 /* zona de waves */
 
@@ -171,7 +183,7 @@ input{
 .waves {
   width: 100%;
   height:90px;
-  margin-bottom:-7px; /*Fix for safari gap*/
+  margin-bottom:-7px; 
   min-height:40px;
   max-height:150px;
 }
